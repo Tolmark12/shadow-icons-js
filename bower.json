@@ -8,6 +8,8 @@
     ".DS_Store",
     ".git",
     ".gitignore",
+    "shadow",
+    "gulp-shadow",
     "app",
     "bower_components",
     "gulp-colors.coffee",
