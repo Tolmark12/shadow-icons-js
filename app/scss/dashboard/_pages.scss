@@ -1,0 +1,11 @@
+svg.pagoda-icon        {
+  .empty-cup           {
+    *                  { stroke:$blue; }
+    .dashed, .dashed * { stroke-dasharray:2 3;}
+  }
+  .adding-machine      { 
+    *                  { stroke:$blue; }
+    .fill-group *      { fill:$blue !important; }
+    .dashed            { stroke-dasharray:2 3; }
+  }
+}

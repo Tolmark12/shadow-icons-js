@@ -1,0 +1,14 @@
+
+svg.pagoda-icon             {
+  .transaction-logs *       { stroke:$blue; }
+  .transactions-close       {
+    *                       { stroke:#174F69; }
+    .light *                { stroke:#2886B3; }
+  }
+}
+.shadow-icon-parent:hover   {
+  svg.pagoda-icon           {
+    .transaction-logs *     { stroke:white; }
+    .transactions-close *   { stroke:$blue_L20; }
+  }
+}

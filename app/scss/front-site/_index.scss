@@ -1,0 +1,72 @@
+svg.pagoda-icon      {
+  .scaler            {
+    *                { fill:white; stroke:none; }
+    .scales *        { font-size:13px; fill:#8BD2D9;}
+    .light-gray *    { fill:#E8E8E8}
+    .blue-gray *     { fill:#9DA9AD; font-size:17px; }
+    .bare-metal      { font-size:12px; }
+
+    .iron            { fill:#002A2E; }
+    .iron-dot        { fill:#3B6488; }
+    .sizes *         { font-size:20px; }
+
+    &.mini-scaler    {
+      .blue-gray *   { fill:#9DA9AD; font-size:12px; }
+    }
+
+  }
+  .feature-icon *    { fill:none; stroke-width:2.5; stroke:#D44763; stroke-linecap:round; stroke-linejoin:round; stroke-miterlimit:10; }
+  .red, .red *       { stroke:#B83357; }
+  .new-features-bg * { fill:none; stroke:#D44763; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; stroke-miterlimit:10; }
+  .checkmark *       { fill:#51A611; stroke:none; }
+
+  .nanobox-logo      {
+    *                { stroke: none; }
+    .gray *          { fill:#D6D6D6; }
+    .white *         { fill:white; }
+    .type *          { fill:#663348; }
+  }
+}
+
+.shadow-icon-body        {
+  svg.pagoda-icon        {
+    .small-only          { display: none; }
+    .med-only            { display: none; }
+    .large-only          { display: none; }
+    .large-and-med       { display: none; }
+  }
+  &.sm svg.pagoda-icon   {
+    .small-only          { display: block; }
+    .not-small           { display: none;}
+  }
+  &.md svg.pagoda-icon   {
+    .not-med             { display: none; }
+    .med-only            { display: block; }
+    .large-and-med       { display: block; }
+  }
+  &.lg svg.pagoda-icon   {
+    .not-large           { display: none; }
+    .large-only          { display: block; }
+    .large-and-med       { display: block; }
+  }
+}
+
+.shadow-icon-body        {
+  svg.pagoda-icon        {
+    &#load-balancing     { height: 40px;
+      g.load-balancing   { @include transform(  translate(0px, -38.5px) ); }
+    }
+  }
+  &.sm svg.pagoda-icon   {
+    &#load-balancing     { width: 57px; height:79px;
+      g.load-balancing   { @include transform( translate(-38px, 0) ); };
+    }
+  }
+}
+
+// DELETE : Migration tool specific, delete after migration complete
+.overlayed             {
+  svg.pagoda-icon      {
+    .checkmark *       { fill:white; }
+  }
+}

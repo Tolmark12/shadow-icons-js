@@ -1,0 +1,13 @@
+svg.pagoda-icon    {
+  .logs *          { stroke:$gray_blue; }
+}
+.shadow-icon-parent:hover{
+  svg.pagoda-icon  {
+    .logs *        { stroke:$blue; }
+  }
+}
+.shadow-icon-parent.active{
+  svg.pagoda-icon  {
+    .logs *        { stroke:$blue_7; }
+  }
+}

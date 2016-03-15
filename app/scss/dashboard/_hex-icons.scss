@@ -1,0 +1,23 @@
+svg.pagoda-icon       {
+  .hex                {
+    .fill             { fill:white; }
+    :not(.fill)       { stroke:$gray_blue_10; stroke-width:1.5; }
+  }
+}
+
+.shadow-icon-parent:hover, .shadow-icon-parent.active:hover {
+  svg.pagoda-icon         {
+    .hex                  {
+      .fill               { fill:$blue; }
+      :not(.fill)         { stroke:$night_5; }
+    }
+  }
+}
+.shadow-icon-parent.active {
+  svg.pagoda-icon          {
+    .hex                   {
+      .fill                { fill:$gray_blue; }
+      :not(.fill)          { stroke:$night_5; }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+!!!
+%html{lang: "en"}
+
+  %head
+    %title Shadow Icons
+    %link{href: "css/nanobox.css", rel: "stylesheet"}
+    %link{href: "stage/css/stage.css", rel: "stylesheet"}
+    %link{href: "http://fonts.googleapis.com/css?family=Open+Sans", rel: "stylesheet"}
+
+  %body#test-env.shadow-icon-body
+    .show-controls
+    .controls.body-controls
+      %radiogroup
+        .txt Shadow Icon Body :
+        %input{type:"radio", value:" ", accesskey:"n", checked:"checkesd", name:"classAddersBody"}
+        %label{} clean
+        %input{type:"radio", value:"custom", accesskey:"a",  name:"classAddersBody", id:"custom-radio"}
+        %input{type:"text", value:"", id:"custom-class-field"}
+    .controls.shadow-icon-parent-cons
+      %radiogroup
+        .txt Shadow Icon Parent :
+        %input{type:"radio", value:" ", accesskey:"n", checked:"checkesd", name:"classAdders"}
+        %label{} clean
+        %input{type:"radio", value:"active", accesskey:"c",  name:"classAdders"}
+        %label{} active
+        %input{type:"radio", value:"custom", accesskey:"a",  name:"classAdders", id:"custom-radio"}
+        %input{type:"text", value:"", id:"custom-class-field"}
+      .title
+
+    -# DASHBOARD ICONS ---------------------------------
+
+    .shadow-icon-parent
+      %img.shadow-icon{data-src: "github" }
+      %img.shadow-icon{data-src: "close-btn" }
+      %img.shadow-icon{data-src: "add-btn", scalable:"true", lock-to-max:"true" }
+      %img.shadow-icon{data-src: "push-pagoda" }
+      %img.shadow-icon{data-src: "engine-icon" }
+      %img.shadow-icon{data-src: "framework-sniff" }
+      %img.shadow-icon{data-src: "proxy-router" }
+      %img.shadow-icon{data-src: "engine-sniff" }
+      %img.shadow-icon{data-src: "boxfile" }
+      %img.shadow-icon{data-src: "code-built" }
+      %img.shadow-icon{data-src: "watched-files" }
+      %img.shadow-icon{data-src: "terminal", scalable:"true"}
+      %img.shadow-icon{data-src: "logo" }
+      %img.shadow-icon{data-src: "logo-horizontal" }
+      %img.shadow-icon{data-src: "docker-containers" }
+      %img.shadow-icon{data-src: "vagrant-initializes" }
+      %img.shadow-icon{data-src: "build-cont-launches" }
+      %img.shadow-icon{data-src: "code-built" }
+      %img.shadow-icon{data-src: "sandwich" }
+
+      -# .row
+      -#   .left
+      -#   .right
+      -#     %img.shadow-icon{data-src: "nanobox-initializes", data-scalable: "true", lock-to-max:"true"}
+
+    -# Libs
+    %script{src: "bower-libs/jquery/jquery.min.js"}
+
+    -# App
+    %script{src: "js/app.js"}
+    -# %script{src: "js/icons-dashboard.js"}
+    -# %script{src: "js/icons-front-site.js"}
+    %script{src: "js/nanobox.js"}
+    %script{src: "stage/js/init.js"}
+    %script{src: "http://localhost:35728/livereload.js"}

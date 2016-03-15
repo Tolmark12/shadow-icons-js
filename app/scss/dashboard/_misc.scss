@@ -1,0 +1,52 @@
+svg.pagoda-icon               {
+  .hex-new-btn                {
+    .fill                     { fill:white; }
+    :not(.fill)               { stroke:$blue; stroke-width:3; }
+  }       
+  .circle-check               {
+    .fill.check               { fill:$blue }
+    .fill                     { fill:white; }
+  }       
+  .circle-plus                {
+    :not(.fill)               { stroke:white }
+    .fill                     { fill:$blue_10; }
+  }       
+  .manage-molecule            {
+    *                         { stroke:$green_7; }
+  }       
+  .clock *                    { stroke:$gray_10;
+    g.thin *                  { stroke-width:1; }
+  }       
+  .v2-beta                    { 
+    .fill *                   { stroke:none; fill:#8ABD53; }
+    .line                     { stroke-width:1; stroke:#CDCDCD; }
+  }       
+  .legal *                    { stroke:#C3C3C3; stroke-width:2.5;}
+  .dns-check *, .dns-record * { stroke:#D8D8D8; }
+  .dns-check .fill            { stroke:none; fill:$green; }
+  .dns-txt *, .dns-a *        { stroke:#F37D37; }
+}
+
+.shadow-icon-parent       {
+  // Hovers
+  &:hover, &.active:hover
+  svg.pagoda-icon         {
+    .hex-new-btn          {
+      .fill               { fill:$blue; }
+      :not(.fill)         { stroke:$night_5; }
+    }
+    .circle-plus          {
+      .fill               { fill:black;}
+    }
+  }
+
+  &.cool .manage-molecule *   { stroke:$green_7; }
+  &.warm .manage-molecule *   { stroke:$orange_7; }
+  &.hot  .manage-molecule *   { stroke:$red_7; }
+  &:hover,                    {
+    &.cool .manage-molecule * { stroke:$green_15; }
+    &.warm .manage-molecule * { stroke:$orange_15; }
+    &.hot  .manage-molecule * { stroke:$red_15; }
+  }
+}
+

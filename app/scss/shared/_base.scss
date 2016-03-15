@@ -1,0 +1,7 @@
+svg.pagoda-icon *      { stroke-width:2; stroke:salmon; }
+svg.pagoda-icon        { pointer-events: all;
+  :not(.fill)          { fill:none; }
+  .fill                { stroke:none; }
+  .fill-group *        { stroke:none !important; fill:salmon; }
+  .dashed, .dashed *   { stroke-dasharray:3; }
+}

@@ -1,0 +1,90 @@
+$logo-light-a:#B8CDD5;
+$logo-light-b:#708085;
+$logo-light-c:#8C9DA3;
+$logo-light-d:#2B363B;
+$logo-light-e:#313B3E;
+$logo-light-f:#4B585B;
+$logo-light-g:#708085;
+$logo-light-h:#708085;
+
+$logo-dark-a:#3BA7C3;
+$logo-dark-b:#338EA7;
+$logo-dark-c:#2B798E;
+$logo-dark-d:#1D5463;
+$logo-dark-e:#205A69;
+$logo-dark-f:#25697B;
+$logo-dark-g:#338EA7;
+$logo-dark-h:#338EA7;
+
+
+svg.pagoda-icon          {
+  .front-logo *          { stroke:none; fill:#819397; }
+  .front-logo            {
+    .a                   { fill:$logo-light-a; }
+    .b                   { fill:$logo-light-b; }
+    .c                   { fill:$logo-light-c; }
+    .d                   { fill:$logo-light-d; }
+    .e                   { fill:$logo-light-e; }
+    .f                   { fill:$logo-light-f; }
+    .g                   { fill:$logo-light-g; }
+    .h                   { fill:$logo-light-h; }
+  }
+}
+
+.shadow-icon-body       {
+  // .default white bg
+  // .configuring
+  &.pricing-initial,     
+  &.configuring         {
+    svg.pagoda-icon     {
+      .front-logo *     { fill:white;
+        .a              { fill:$logo-dark-a; }
+        .b              { fill:$logo-dark-b; }
+        .c              { fill:$logo-dark-c; }
+        .d              { fill:$logo-dark-d; }
+        .e              { fill:$logo-dark-e; }
+        .f              { fill:$logo-dark-f; }
+        .g              { fill:$logo-dark-g; }
+        .h              { fill:$logo-dark-h; }
+      }
+    }
+    .shadow-icon-parent     {
+      &:hover               {
+        svg.pagoda-icon     {
+          .front-logo *     { fill:white; }
+          .front-logo       {
+            .a              { fill: darken($logo-dark-a, 10%) ; }
+            .b              { fill: darken($logo-dark-b, 10%) ; }
+            .c              { fill: darken($logo-dark-c, 10%) ; }
+            .d              { fill: darken($logo-dark-d, 10%) ; }
+            .e              { fill: darken($logo-dark-e, 10%) ; }
+            .f              { fill: darken($logo-dark-f, 10%) ; }
+            .g              { fill: darken($logo-dark-g, 10%) ; }
+            .h              { fill: darken($logo-dark-h, 10%) ; }
+          }
+        }
+      }
+    }
+  }
+
+  .shadow-icon-parent     {
+    &:hover               {
+      svg.pagoda-icon     {
+        .front-logo *     { fill: darken(#819397, 10%); }
+        .front-logo       {
+          .a              { fill: darken($logo-light-a, 10%) ; }
+          .b              { fill: darken($logo-light-b, 10%) ; }
+          .c              { fill: darken($logo-light-c, 10%) ; }
+          .d              { fill: darken($logo-light-d, 10%) ; }
+          .e              { fill: darken($logo-light-e, 10%) ; }
+          .f              { fill: darken($logo-light-f, 10%) ; }
+          .g              { fill: darken($logo-light-g, 10%) ; }
+          .h              { fill: darken($logo-light-h, 10%) ; }
+        }
+      }
+    }
+  }
+
+}
+
+

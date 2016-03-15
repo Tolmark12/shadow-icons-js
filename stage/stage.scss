@@ -1,0 +1,35 @@
+body                     { background:#DDD; font-family:'Open Sans', sans-serif;}
+.controls                { margin:20px auto; width:450px; font-size:10px;  cursor: pointer;
+  input[type="radio"]    { margin-left:10px; display: inline-block; }
+  input[type="text"]     { display: inline-block; }
+  .title                 { position: fixed; left:10px; top:10px; font-size: 12px; margin:0 0 0 10px; font-style: italic; }
+  .txt                   { width:120px; font-size:12px; color:#AAA; display: inline-block;}
+}
+.show-controls           { cursor:pointer; position:fixed; width:25px; height:25px; background:#DB2558; opacity:0.7; top:10px; right:10px; border-radius: 50%;
+  &:hover                { opacity:1; }
+}
+
+// Just so it showns up against the background
+svg.pagoda-icon      {
+  .traffic-vis-big * { stroke:#516875; }
+}
+// body *         { @include transition(all, 0.15s);}
+
+// .shadow-icon-parent{max-width:800px; margin :auto;}
+.row{
+}
+.left{
+  vertical-align:middle;
+  height:500px;
+  background:blue;
+  width:60%;
+  display:inline-block;
+}
+.right      { background:red; width:40%; display:inline-block; position: relative; text-align: center; vertical-align:middle;
+  .holder   {
+    svg     {  }
+  }
+}
+html           {box-sizing: border-box;}
+*, *:before,
+*:after        {box-sizing: inherit;}

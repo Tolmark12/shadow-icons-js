@@ -1,0 +1,22 @@
+{
+  "name": "shadow-icons-library",
+  "version": "0.0.75",
+  "devDependencies": {
+    "jquery": "~2.0.3"
+  },
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    "app",
+    "bower_components",
+    "gulp-colors.coffee",
+    "gulpfile.coffee",
+    "gulpfile.js",
+    "node_modules",
+    "package.json",
+    "server",
+    "stage",
+    "*/.*"
+  ]
+}

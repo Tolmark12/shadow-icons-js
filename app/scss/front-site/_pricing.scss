@@ -1,0 +1,68 @@
+svg.pagoda-icon      {
+  // The stroke-linejoin rule is causing problems in safari with retina display
+  .roll-your-own   *,
+  .app-demo        *,
+  .flexible        *        { stroke-width:1.8; stroke-linecap:round; /* stroke-linejoin:round; */ stroke-miterlimit:10; }
+  .roll-your-own   *        { stroke:#206F8C; stroke-linejoin:round; }
+  .flexible        *        { stroke:#42B4D9;  }
+  .xclose          *        { stroke:#3B5864; }
+  .app-demo                 {
+    *                       { stroke:#24373D;  }
+    &.app-custom            {
+      *                     { stroke-width:0.8; }
+      .outline              { stroke-width:1.8; }
+    }
+  }
+  .pricing-meta             {
+    *                       { stroke:#516875; stroke-linecap:round; }
+    .dashed                 { stroke-dasharray:1 3;  }
+  }
+  .traffic-vis-big *        { stroke:#DFDFDF; stroke-linecap:round; }
+  .add-service              {
+    *                       { stroke:none; fill:white; stroke-width:1.8; }
+    .plus                   { fill:#42B4D9; }
+  }
+  .close-btn                {
+    *                       { stroke:none; fill:white; }
+    .cross *                { fill:#ED5674; }
+  }
+  .pricing-extras *         { stroke:#206F8C; stroke-width:1.8; }
+  .documentation-link *     { stroke:#92A1A8; }
+  .uptime-link              {
+    *                       { stroke:none }
+    .light                  {
+      *                     { fill:#C7DCE6; }
+      .line                 { fill:none; stroke:#C7DCE6; stroke-width:1; }
+    }
+    .dark                   {
+      *                     { fill:#92A1A8; }
+      .line                 { fill:none; stroke:#92A1A8; stroke-width:1; }
+    }
+  }
+}
+
+.shadow-icon-parent         {
+  &:hover                   {
+    svg.pagoda-icon         {
+      .roll-your-own *      { stroke:white;}
+      .app-demo      *      { stroke:white;}
+      .xclose        *      { stroke:#5FC2DF; }
+      .close-btn            {
+        *                   { fill:#ED5674; }
+        .cross *            { fill:white; }
+      }
+      .pricing-meta  *      { stroke:white; }
+      .documentation-link * { stroke:#50BDE5; }
+      .uptime-link          {
+        .light              {
+          *                 { fill:#50BDE5; }
+          .line             { fill:none; stroke:#50BDE5;  }
+        }
+        .dark               {
+          *                 { fill:#1F8FB8; }
+          .line             { fill:none; stroke:#1F8FB8; }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+svg.pagoda-icon             {
+  .angles *                 { stroke:$slate_5;stroke-width:1.75; }
+  .hex-scale                { 
+    *                       { stroke:$blue_7; }
+    .outer                  { stroke:$blue_L5; }
+  }
+  .metric *                 { stroke:$blue; stroke-width:1.5; }
+  .new-service-topology     {
+    *                       { stroke:$gray_25; stroke-width:1.9; }
+    .dashed *               { stroke-dasharray:3 2; }
+  }
+  .new-app *                { stroke:$ice_15; }
+  .verify-account           { 
+    *:not(.fill)            { stroke:white; }
+    .phone-lines *          { stroke: #E5E5E5; }
+    .fill *                 { fill:white; stroke:none; }
+    .fill.face              { fill:#37C2A1; }
+    .fill.eyes              { fill:white; }
+  }
+  .tinker-production *      { stroke:$blue; }
+}
+
+.shadow-icon-parent         {
+  &.active                  { 
+    .angles *               { stroke:$blue_10; }
+    .hex-scale              { 
+      *                     { stroke:white; }
+      .outer                { stroke:white; }
+    }
+    .new-app *              { stroke:$mint_20; }
+    .new-service-topology * { stroke:$blue_10; }
+  }
+  // Hovers
+  &:hover svg.pagoda-icon   {
+    .angles *               { stroke:$blue; }
+    .hex-scale              { 
+      .outer                { stroke:white; }
+    }
+    .new-app *              { stroke:$gray_blue_20; }
+    .new-service-topology * { stroke:$blue_10; }
+  }
+  &.bare-metal              {
+    .metric *               { @include scale(1.1); stroke:$blue_20; }
+  }
+}

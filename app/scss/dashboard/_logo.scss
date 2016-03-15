@@ -1,0 +1,52 @@
+svg.pagoda-icon     {
+  .logo *           { stroke:none; fill:#757878; }
+  .logo             {
+    .a              { fill:#EDEDED; }
+    .b              { fill:#CCCCCC; }
+    .c              { fill:#ADADAD; }
+    .d              { fill:#969696; }
+    .e              { fill:#808080; }
+    .f              { fill:#757878; }
+  }
+}
+.shadow-icon-parent   {
+  &.blue              {
+    svg.pagoda-icon   {
+      .logo *         { fill:$indigo_30; }
+      .logo           {
+        .a            { fill:#4C9DA8; }
+        .b            { fill:#3D7E88; }
+        .c            { fill:#2F6269; }
+        .d            { fill:#254D52; }
+        .e            { fill:#1B383C; }
+        .f            { fill:#102F34; }
+      }
+    }
+    &:hover           {
+      svg.pagoda-icon   {
+        .logo *         { fill:$indigo_30; }
+        .logo           {
+          .a            { fill:#55C3D2; }
+          .b            { fill:#4299A6; }
+          .c            { fill:#2F737D; }
+          .d            { fill:#22575E; }
+          .e            { fill:#143B41; }
+          .f            { fill:#062F36; }
+        }
+      }
+    }
+  }
+  &:hover             {
+    svg.pagoda-icon   {
+      .logo *         { fill:#2B343C; }
+      .logo           {
+        .a            { fill:white; }
+        .b            { fill:#DADADA; }
+        .c            { fill:#A5A5A5; }
+        .d            { fill:#7F7F7F; }
+        .e            { fill:#5C5C5C; }
+        .f            { fill:#494E4E; }
+      }
+    }
+  }
+}

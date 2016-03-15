@@ -1,0 +1,18 @@
+@mixin drop-shadow ($xoffset:0px, $yoffset:1px, $blur:2px, $color:$gray_15, $radius:0px) {
+  // @include box-shadow();
+  -webkit-box-shadow: $xoffset $yoffset $blur $radius $color;
+  -moz-box-shadow: $xoffset $yoffset $blur $radius $color;
+  box-shadow: $xoffset $yoffset $blur $radius $color;
+}
+
+@mixin scale($targetScale) {
+  -webkit-transform:  scale($targetScale);
+  -moz-transform:     scale($targetScale);
+  -transform:         scale($targetScale);
+}
+
+@mixin transform ($transform) {
+  transform:         $transform;
+  -webkit-transform: $transform;
+  -ms-transform:     $transform;
+}

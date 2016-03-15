@@ -1,0 +1,9 @@
+
+svg.pagoda-icon     {
+  .flush-rebuild *          { stroke:$gray_10; }
+}
+.shadow-icon-parent:hover{
+  svg.pagoda-icon   {
+    .flush-rebuild *        { stroke:$blue; }
+  }
+}
