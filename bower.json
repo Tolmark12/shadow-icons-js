@@ -1,6 +1,6 @@
 {
   "name": "shadow-icons-library",
-  "version": "0.0.77",
+  "version": "0.0.78",
   "devDependencies": {
     "jquery": "~2.0.3"
   },
