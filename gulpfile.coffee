@@ -22,14 +22,14 @@ prettify     = require 'gulp-prettify'
 rename       = require 'gulp-rename'
 replace      = require 'gulp-replace'
 sass         = require 'gulp-sass'
-shadow       = require 'gulp-shadow'
+shadow       = require 'gulp-shadow-library'
 usemin       = require 'gulp-usemin'
 uglify       = require 'gulp-uglify'
 watch        = require 'gulp-watch'
 del          = require 'del'
 
 # shadow       = require './gulp-shadow/gulp-shadow.coffee'
-shadow       = require 'gulp-shadow'
+# shadow       = require 'gulp-shadow'
 
 # Paths
 svgPath = 'app/assets/compiled/*.svg'

@@ -23,7 +23,7 @@ ShadowIcons = (function() {
   };
 
   ShadowIcons.prototype.replacePlaceholdersWithSVGs = function(svg, $jqueryContext) {
-    var $holder, $svg, $targetSvg, box, id, image, images, lockToMax, modBox, newNode, rawHtml, scalable, serializer, tal, usesSymbols, wid, _i, _len, _ref, _ref1, _ref2, _ref3, _results;
+    var $holder, $svg, $targetSvg, box, id, image, images, lockToMax, modBox, newNode, rawHtml, scalable, serializer, usesSymbols, xtra, _i, _len, _ref, _ref1, _ref2, _ref3, _results;
     $svg = $(this.buildSvg(svg, "main"));
     images = $("img.shadow-icon", $jqueryContext);
     _results = [];
@@ -31,11 +31,12 @@ ShadowIcons = (function() {
       image = images[_i];
       id = $(image).attr("data-src");
       scalable = ((_ref = $(image).attr("scalable")) != null ? _ref.toUpperCase() : void 0) === 'TRUE';
+      xtra = $(image).attr("xtra") != null ? Number($(image).attr("xtra")) : 0;
       lockToMax = ((_ref1 = $(image).attr("lock-to-max")) != null ? _ref1.toUpperCase() : void 0) === 'TRUE';
       lockToMax || (lockToMax = ((_ref2 = $(image).attr("data-lock-to-max")) != null ? _ref2.toUpperCase() : void 0) === 'TRUE');
       scalable || (scalable = ((_ref3 = $(image).attr("data-scalable")) != null ? _ref3.toUpperCase() : void 0) === 'TRUE');
       $targetSvg = $("#" + id, $svg)[0];
-      usesSymbols = $("use", $targetSvg).length !== 0;
+      usesSymbols = false;
       if ($targetSvg == null) {
         _results.push(console.error("Shadow Icons : Tried to add an SVG with the id '" + id + "', but a SVG with id doesn't exist in the library SVG."));
       } else {
@@ -48,14 +49,12 @@ ShadowIcons = (function() {
         }
         $('body').append(newNode);
         box = newNode[0].getBBox();
-        wid = Math.round(box.width);
-        tal = Math.round(box.height);
         modBox = {
-          width: wid,
-          height: tal
+          width: Math.round(box.width),
+          height: Math.round(box.height)
         };
         if (scalable) {
-          newNode.get(0).setAttribute("viewBox", "0 0 " + (modBox.width + 8) + " " + (modBox.height + 8));
+          newNode.get(0).setAttribute("viewBox", "0 0 " + (modBox.width + xtra) + " " + (modBox.height + xtra));
           $holder = $("<div class='holder'><div>");
           $holder.css({
             "width": "100%",
@@ -63,16 +62,16 @@ ShadowIcons = (function() {
           });
           if (lockToMax) {
             $holder.css({
-              "max-width": "" + (modBox.width + 8) + "px",
-              "max-height": "" + (modBox.height + 8) + "px"
+              "max-width": "" + (modBox.width + xtra) + "px",
+              "max-height": "" + (modBox.height + xtra) + "px"
             });
           }
           $holder.append(newNode);
           _results.push($(image).replaceWith($holder));
         } else {
           newNode.attr({
-            width: "" + (modBox.width + 8) + "px",
-            height: "" + (modBox.height + 8) + "px"
+            width: "" + (modBox.width + xtra) + "px",
+            height: "" + (modBox.height + xtra) + "px"
           });
           _results.push($(image).replaceWith(newNode));
         }

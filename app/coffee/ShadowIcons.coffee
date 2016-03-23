@@ -24,6 +24,7 @@ class ShadowIcons
       # Pull the svg's id off the image "data-src" attr
       id           = $(image).attr "data-src"
       scalable     = $(image).attr("scalable")?.toUpperCase()           == 'TRUE'
+      xtra         = if $(image).attr("xtra")? then Number($(image).attr("xtra")) else 0
       lockToMax    = $(image).attr("lock-to-max")?.toUpperCase()        == 'TRUE'
       lockToMax  ||= $(image).attr("data-lock-to-max")?.toUpperCase()   == 'TRUE'
       scalable   ||= $(image).attr("data-scalable")?.toUpperCase()      == 'TRUE'
@@ -31,7 +32,8 @@ class ShadowIcons
       # grab the svg libraries raw 'g' element matching that id
       $targetSvg = $( "##{id}", $svg)[0]
 
-      usesSymbols = $("use", $targetSvg).length != 0
+      # usesSymbols = $("use", $targetSvg).length != 0
+      usesSymbols = false # Force to not use symbols
 
       # Return if this id doesn't exist in the library svg
       if !$targetSvg?
@@ -54,10 +56,9 @@ class ShadowIcons
         modBox = {width: Math.round( box.width ), height: Math.round( box.height )}
         # box.width = Math.round( box.width )
         # box.height = Math.round( box.height )
-
         if scalable
-          newNode.get(0).setAttribute "viewBox", "0 0 #{modBox.width +  8} #{modBox.height +  8}"
-          # $holder = $ "<div class='holder' style='max-width:#{modBox.width +  8}px; max-height:#{modBox.height +  8}px;'><div>"
+          newNode.get(0).setAttribute "viewBox", "0 0 #{modBox.width +  xtra} #{modBox.height +  xtra}"
+          # $holder = $ "<div class='holder' style='max-width:#{modBox.width +  xtra}px; max-height:#{modBox.height +  xtra}px;'><div>"
           $holder = $ "<div class='holder'><div>"
 
           $holder.css
@@ -66,13 +67,13 @@ class ShadowIcons
 
           if lockToMax
             $holder.css
-              "max-width"      : "#{modBox.width +  8}px"
-              "max-height"     : "#{modBox.height + 8}px"
+              "max-width"      : "#{modBox.width +  xtra}px"
+              "max-height"     : "#{modBox.height + xtra}px"
 
           $holder.append newNode
           $(image).replaceWith $holder
         else
-          newNode.attr width: "#{modBox.width +  8}px", height:"#{modBox.height +  8}px"
+          newNode.attr width: "#{modBox.width +  xtra}px", height:"#{modBox.height +  xtra}px"
           $(image).replaceWith newNode
 
 
