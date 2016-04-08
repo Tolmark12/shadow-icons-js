@@ -1,7 +1,9 @@
-var ShadowIcons, pxicons;
+var ShadowIcons, castShadows, pxicons, shadowIcons,
+  __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 ShadowIcons = (function() {
   function ShadowIcons() {
+    this.svgReplaceWithString = __bind(this.svgReplaceWithString, this);
     window.shadowIconsInstance = this;
   }
 
@@ -103,3 +105,7 @@ ShadowIcons = (function() {
 pxicons = {};
 
 pxicons.ShadowIcons = ShadowIcons;
+
+shadowIcons = new pxicons.ShadowIcons();
+
+castShadows = shadowIcons.svgReplaceWithString;

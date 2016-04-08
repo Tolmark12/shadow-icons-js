@@ -2,11 +2,11 @@
 +++    EXAMPLE USAGE    +++
 ----------------------- ###
 
-shadowIcons = new pxicons.ShadowIcons()
+# shadowIcons = new pxicons.ShadowIcons()
 # shadowIcons.svgReplaceWithString pxSvgIconString, $("body")
 # OPTION 1 :
 # Use the javascript formatted string found in pagoda-svg-icons.js
-shadowIconsInstance.svgReplaceWithString pxSvgIconString, $("body")
+castShadows pxSvgIconString, $("body")
 
 # OPTION 2 :
 # Alternatively, use an external file as the svg library

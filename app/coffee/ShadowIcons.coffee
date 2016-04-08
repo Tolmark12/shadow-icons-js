@@ -4,7 +4,7 @@ class ShadowIcons
 
   # API --------------------------------------------------------
 
-  svgReplaceWithString : (svgString, $jqueryContext) ->
+  svgReplaceWithString : (svgString, $jqueryContext) =>
     @replacePlaceholdersWithSVGs svgString, $jqueryContext
 
   svgReplaceWithExternalFile : ( url, $jqueryContext)->
@@ -97,3 +97,5 @@ class ShadowIcons
 
 pxicons = {}
 pxicons.ShadowIcons = ShadowIcons
+shadowIcons = new pxicons.ShadowIcons()
+castShadows = shadowIcons.svgReplaceWithString
