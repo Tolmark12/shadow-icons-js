@@ -7,7 +7,10 @@ ShadowIcons = (function() {
     window.shadowIconsInstance = this;
   }
 
-  ShadowIcons.prototype.svgReplaceWithString = function(svgString, $jqueryContext) {
+  ShadowIcons.prototype.svgReplaceWithString = function($jqueryContext, svgString) {
+    if (svgString == null) {
+      svgString = pxSvgIconString;
+    }
     return this.replacePlaceholdersWithSVGs(svgString, $jqueryContext);
   };
 
@@ -52,7 +55,6 @@ ShadowIcons = (function() {
       return;
     }
     size = $g.attr("data-size").split('x');
-    $g.removeAttr("data-size");
     modBox = {
       width: size[0],
       height: size[1]

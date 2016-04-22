@@ -6,7 +6,7 @@
 # shadowIcons.svgReplaceWithString pxSvgIconString, $("body")
 # OPTION 1 :
 # Use the javascript formatted string found in pagoda-svg-icons.js
-castShadows pxSvgIconString, $("body")
+castShadows $("body")
 
 # OPTION 2 :
 # Alternatively, use an external file as the svg library
