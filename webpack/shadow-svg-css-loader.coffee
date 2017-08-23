@@ -23,6 +23,7 @@ saveFile = (fileContents, loader) ->
   loader.emitFile "./#{fileName.join('.')}", fileContents
 
 getUniqueStr = (context) ->
+  return 'asdf'
   uniqueStr = utils.getOptions(context).uniqueStr
   if !uniqueStr?
     return ""

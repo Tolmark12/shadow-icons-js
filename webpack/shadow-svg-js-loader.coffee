@@ -10,6 +10,7 @@ class SvgCompiler
     return "#{cssData}\n#{jsString}"
 
   getUniqueStr : (context) ->
+    return 'asdf'
     uniqueStr = utils.getOptions(context).uniqueStr
     if !uniqueStr?
       return ""
@@ -43,7 +44,6 @@ class SvgCompiler
     data = data.replace /<svg.+?>([\s\S]*)<\/svg>/g, '$1'                                                             # Strip out svg tags
 
     data = data.replace /([\s\S]*)/g, "window.pxSvgIconString = window.pxSvgIconString || ''; window.pxSvgIconString+='$1';"           # Save just the svgs
-    data += "; console.log(pxSvgIconString)"
 
     return data
 

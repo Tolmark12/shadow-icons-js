@@ -18,6 +18,7 @@ SvgCompiler = (function() {
 
   SvgCompiler.prototype.getUniqueStr = function(context) {
     var uniqueStr;
+    return 'asdf';
     uniqueStr = utils.getOptions(context).uniqueStr;
     if (uniqueStr == null) {
       return "";
@@ -50,7 +51,6 @@ SvgCompiler = (function() {
     data = data.replace(/\n|\r/g, '');
     data = data.replace(/<svg.+?>([\s\S]*)<\/svg>/g, '$1');
     data = data.replace(/([\s\S]*)/g, "window.pxSvgIconString = window.pxSvgIconString || ''; window.pxSvgIconString+='$1';");
-    data += "; console.log(pxSvgIconString)";
     return data;
   };
 

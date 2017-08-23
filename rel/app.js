@@ -27,70 +27,90 @@ ShadowIcons = (function() {
     });
   };
 
-  ShadowIcons.prototype.replacePlaceholdersWithSVGs = function(svg, $jqueryContext) {
-    var $svg, image, images, _i, _len, _results;
-    $svg = $(this.buildSvg(svg, "main"));
-    images = $("img.shadow-icon", $jqueryContext);
+  ShadowIcons.prototype.replacePlaceholdersWithSVGs = function(svg, $context) {
+    var $images, $svg, image, _i, _len, _results;
+    $context = this.validateContext($context);
+    $svg = this.buildSvg(svg, "main");
+    $images = $context.querySelectorAll("img.shadow-icon");
     _results = [];
-    for (_i = 0, _len = images.length; _i < _len; _i++) {
-      image = images[_i];
+    for (_i = 0, _len = $images.length; _i < _len; _i++) {
+      image = $images[_i];
       _results.push(this.createSvg(image, $svg));
     }
     return _results;
   };
 
-  ShadowIcons.prototype.createSvg = function(image, $svg) {
-    var $g, $holder, $targetSvg, id, lockToMax, modBox, newNode, rawHtml, scalable, serializer, size, usesSymbols, _ref, _ref1, _ref2, _ref3;
-    id = $(image).attr("data-src");
-    scalable = ((_ref = $(image).attr("scalable")) != null ? _ref.toUpperCase() : void 0) === 'TRUE';
-    lockToMax = ((_ref1 = $(image).attr("lock-to-max")) != null ? _ref1.toUpperCase() : void 0) === 'TRUE';
-    lockToMax || (lockToMax = ((_ref2 = $(image).attr("data-lock-to-max")) != null ? _ref2.toUpperCase() : void 0) === 'TRUE');
-    scalable || (scalable = ((_ref3 = $(image).attr("data-scalable")) != null ? _ref3.toUpperCase() : void 0) === 'TRUE');
-    $g = $("#" + id, $svg);
-    if ($g[0] == null) {
+  ShadowIcons.prototype.createHtmlElement = function(str) {
+    var template;
+    template = document.createElement('template');
+    template.innerHTML = str;
+    return template.content.firstChild;
+  };
+
+  ShadowIcons.prototype.createSvg = function(image, svgStr) {
+    var $g, $holder, $svg, $targetSvg, id, lockToMax, modBox, newNode, rawHtml, scalable, serializer, size, usesSymbols, _ref, _ref1, _ref2, _ref3;
+    $svg = this.createHtmlElement(svgStr);
+    id = image.getAttribute("data-src");
+    scalable = ((_ref = image.getAttribute("scalable")) != null ? _ref.toUpperCase() : void 0) === 'TRUE';
+    lockToMax = ((_ref1 = image.getAttribute("lock-to-max")) != null ? _ref1.toUpperCase() : void 0) === 'TRUE';
+    lockToMax || (lockToMax = ((_ref2 = image.getAttribute("data-lock-to-max")) != null ? _ref2.toUpperCase() : void 0) === 'TRUE');
+    scalable || (scalable = ((_ref3 = image.getAttribute("data-scalable")) != null ? _ref3.toUpperCase() : void 0) === 'TRUE');
+    $g = $svg.querySelectorAll("#" + id)[0];
+    if ($g == null) {
       console.log("Shadow Icons : Tried to add an SVG with the id '" + id + "', but an SVG with id doesn't exist in the library SVG.");
       return;
-    } else if ($g.attr("data-size") == null) {
+    } else if ($g.getAttribute("data-size") == null) {
       console.log("Unable to find the size attribute on '" + id + "'");
       return;
     }
-    size = $g.attr("data-size").split('x');
+    size = $g.getAttribute("data-size").split('x');
     modBox = {
       width: size[0],
       height: size[1]
     };
-    $targetSvg = $g[0];
+    $targetSvg = $g;
     usesSymbols = false;
     serializer = new XMLSerializer();
     rawHtml = serializer.serializeToString($targetSvg);
     if (usesSymbols) {
-      newNode = $(this.buildSvg(rawHtml, id, pxSymbolString));
+      newNode = this.createHtmlElement(this.buildSvg(rawHtml, id, pxSymbolString));
     } else {
-      newNode = $(this.buildSvg(rawHtml, id));
+      newNode = this.createHtmlElement(this.buildSvg(rawHtml, id));
     }
-    $('body').append(newNode);
+    document.body.appendChild(newNode);
     if (scalable) {
-      newNode.get(0).setAttribute("viewBox", "0 0 " + modBox.width + " " + modBox.height);
-      $holder = $("<div class='holder'><div>");
-      $holder.css({
-        "width": "100%",
-        "display": "inline-block"
-      });
+      newNode.setAttribute("viewBox", "0 0 " + modBox.width + " " + modBox.height);
+      $holder = this.createHtmlElement("<div class='holder'><div>");
+      $holder.style.width = "100%";
+      $holder.style.display = "inline-block";
       if (lockToMax) {
-        $holder.css({
-          "max-width": "" + modBox.width + "px",
-          "max-height": "" + modBox.height + "px"
-        });
+        $holder.style['max-width'] = "" + modBox.width + "px";
+        $holder.style['max-height'] = "" + modBox.height + "px";
       }
-      $holder.append(newNode);
-      return $(image).replaceWith($holder);
+      $holder.appendChild(newNode);
+      return image.parentNode.replaceChild($holder, image);
     } else {
-      newNode.attr({
-        width: "" + modBox.width + "px",
-        height: "" + modBox.height + "px"
-      });
-      return $(image).replaceWith(newNode);
+      newNode.setAttribute("width", "" + modBox.width + "px");
+      newNode.setAttribute("height", "" + modBox.height + "px");
+      return image.parentNode.replaceChild(newNode, image);
     }
+  };
+
+  ShadowIcons.prototype.validateContext = function($context) {
+    if ($context == null) {
+      return document.body;
+    }
+    if ($context instanceof jQuery) {
+      return $context[0];
+    }
+    if (typeof $context === 'object') {
+      if (Object.keys($context).length === 0) {
+        return document.body;
+      } else {
+        return $context[Object.keys($context)[0]];
+      }
+    }
+    return $context;
   };
 
   ShadowIcons.prototype.buildSvg = function(svgSubElement, id, symbols) {
