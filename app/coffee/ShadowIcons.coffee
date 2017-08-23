@@ -97,8 +97,9 @@ class ShadowIcons
     if !$context?
       return document.body
     # If it's a jquery selector
-    if $context instanceof jQuery
-      return $context[0]
+    if jQuery?
+      if $context instanceof jQuery
+        return $context[0]
     # If it's an object
     if typeof $context == 'object'
       # If it's empty
