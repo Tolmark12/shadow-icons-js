@@ -29,7 +29,6 @@ saveFile = function(fileContents, loader) {
 
 getUniqueStr = function(context) {
   var uniqueStr;
-  return 'asdf';
   uniqueStr = utils.getOptions(context).uniqueStr;
   if (uniqueStr == null) {
     return "";
