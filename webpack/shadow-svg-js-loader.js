@@ -9,13 +9,11 @@ fs = require('fs');
 
 compile = function(cssData, resource, uniqueStr) {
   var jsString;
-  jsString = this.compileJsString(fs.readFileSync(resource, "utf8"), uniqueStr);
+  jsString = compileJsString(fs.readFileSync(resource, "utf8"), uniqueStr);
   return cssData + "\n" + jsString;
 };
 
 getUniqueStr = function(context) {
-  var uniqueStr;
-  return 'asdf';
   uniqueStr = utils.getOptions(context).uniqueStr;
   if (uniqueStr == null) {
     return "";
