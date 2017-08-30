@@ -5,10 +5,7 @@ helpers  = require('./helpers');
 
 compile = function(cssData, resource, fileName, uniqueStr) {
   var jsString;
-  jsString = compileJsString(
-    fs.readFileSync(resource, "utf8"),
-    fileName,
-    uniqueStr);
+  jsString = compileJsString( fs.readFileSync(resource, "utf8"), fileName, uniqueStr );
   return cssData + "\n" + jsString;
 };
 
