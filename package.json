@@ -1,6 +1,6 @@
 {
   "name": "shadow-icons",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "all the generated pixels",
   "main": "index.js",
   "devDependencies": {
